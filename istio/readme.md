@@ -99,4 +99,4 @@ server.tomcat.accesslog.directory = /data/logs/tomcat
 
 
 查看最近的access_log即可看到tomcat的访问日志：
-
+![https://img-blog.csdnimg.cn/2019092610340318.png](https://img-blog.csdnimg.cn/2019092610340318.png)
