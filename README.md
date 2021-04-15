@@ -1,13 +1,13 @@
 # marqueeluo博客
 ## 分类专栏
-### Java
-### Python
-### K8s
-### istio
-### ElasticStatck
+### [Java](java/readme.md)
+### [Python](python.readme.md)
+### [K8s](k8s/readme.md)
+### [istio](istio/readme.md)
+### [ElasticStatck](es/readme.md)
 
 博客搭建参考：
 <ol>
-  <li>[https://www.jianshu.com/p/4f56cf990bba](https://www.jianshu.com/p/4f56cf990bba)</li>
-  <li> [https://zhuanlan.zhihu.com/p/28321740](https://zhuanlan.zhihu.com/p/28321740)</li>
+  <li>[简书 - 使用Github搭建属于自己的博客](https://www.jianshu.com/p/4f56cf990bba)</li>
+  <li> [知乎 - 三分钟在GitHub上搭建个人博客](https://zhuanlan.zhihu.com/p/28321740)</li>
  </ol>
