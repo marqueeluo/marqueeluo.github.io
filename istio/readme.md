@@ -62,8 +62,7 @@ DRS: downstream-localhocal-address downstream-remote-address requested-server-na
 3-3-4-4-3-3
 
 其中RESPONSE_FLAGS定义如下：
-
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210413163605230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
 
 envoy log参考：
 
@@ -88,6 +87,7 @@ stackoverflow - what-is-istio-proxy-access-log-mean 
 
 
 参考：ISTIO/DOCS/TASKS/OBSERVABILITY/LOGS/Getting Envoy's Access Logs
+![xxx](https://img-blog.csdnimg.cn/20210401085241332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
 
 5.Springboot Tomcat访问日志
 开启如下配置：
