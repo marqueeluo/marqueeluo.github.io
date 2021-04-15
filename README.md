@@ -1,9 +1,9 @@
 # marqueeluo博客
-## :star:分类专栏
-### [:link:Java](java/readme.md)
-### [:link:Python](python/readme.md)
+## ⭐分类专栏
+### [🔗Java](java/readme.md)
+### [🔗Python](python/readme.md)
 ### [K8s](k8s/readme.md)
-### [:link:istio](istio/readme.md)
+### [🔗istio](istio/readme.md)
 ### [ElasticStatck](es/readme.md)
 
 博客搭建参考：
