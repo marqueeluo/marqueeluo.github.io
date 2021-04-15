@@ -1,4 +1,3 @@
-@[TOC]
 ## JVM内存机构
 [官方参考：Oracle JavaSE 8  Documention](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html)
 [官方参考：-XX Options](https://www.oracle.com/java/technologies/javase/vmoptions-jsp.html)
