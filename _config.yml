@@ -1,7 +1,7 @@
 # Site settings
-title: Marquee Blog
-SEOTitle: 罗小爬的博客 | Marquee Blog
-header-img: img/tag-bg.jpg
+title: 罗小爬
+SEOTitle: 罗小爬的IT博客 | Marquee IT Blog
+header-img: img/about-bg.jpg
 email: luohengquan@yeah.net
 description: "关于程序与设计、黑客与画家 | Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @罗小爬 的个人博客，与你一起发现更大的世界。"
 keyword: "罗小爬, Marquee罗小爬, Hux, 鬼栈, marquee, @marquee, 罗小爬的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
@@ -78,7 +78,7 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "罗小爬，后端Java程序员，云平台架构K8s, Istio <br> Python爬虫, Xposed <br/>一个不断前行的IT男"
+sidebar-about-description: "罗小爬，后端Java程序员<br/>云平台架构K8s, Istio <br> Python爬虫, Xposed <br/>一个不断前行的IT男"
 sidebar-avatar: /img/avatar-luo-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
