@@ -33,6 +33,14 @@
         </div>
     </div>
 
+
+    <textarea id="t1">
+        {{ page.content }}
+    </textarea>
+
+    <textarea id="t2">
+        {{ content }}
+    </textarea>
     <script src="{{ "/revealjs/dist/reveal.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/revealjs/plugin/notes/notes.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/revealjs/plugin/markdown/markdown.js" | prepend: site.baseurl }}"></script>
