@@ -18,11 +18,17 @@
 <body ontouchstart="">
     <div class="reveal">
         <div class="slides">
+<!--            &lt;!&ndash; Slides are separated by newline + three dashes + newline, vertical slides identical but two dashes &ndash;&gt;-->
+<!--            <section data-markdown="{{ page.path }}" data-separator="-&#45;&#45;" data-separator-vertical="&#45;&#45;">-->
+<!--&lt;!&ndash;                <script type="text/template">&ndash;&gt;-->
+<!--&lt;!&ndash;                    {{ content }}&ndash;&gt;-->
+<!--&lt;!&ndash;                </script>&ndash;&gt;-->
+<!--            </section>-->
             <!-- Slides are separated by newline + three dashes + newline, vertical slides identical but two dashes -->
-            <section data-markdown="{{ page.path }}" data-separator="---" data-separator-vertical="--">
-<!--                <script type="text/template">-->
-<!--                    {{ content }}-->
-<!--                </script>-->
+            <section data-markdown data-separator="---" data-separator-vertical="--">
+                <script type="text/template">
+                    {{ page.content }}
+                </script>
             </section>
         </div>
     </div>
