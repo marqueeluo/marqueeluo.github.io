@@ -1,3 +1,14 @@
+---
+layout:     post
+title:      "Elastic入门"
+subtitle:   ""
+date:       2021-04-19 14:00:00
+author:     "luohq"
+header-img: "img/about-bg.jpg"
+tags:
+    - es
+    - elastic
+---
 @[TOC](目录)
 # 一、安装ElasticSearch
 参考：

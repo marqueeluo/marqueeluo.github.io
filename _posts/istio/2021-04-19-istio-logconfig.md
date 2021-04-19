@@ -1,3 +1,13 @@
+---
+layout:     post
+title:      "Istio日志设置"
+subtitle:   ""
+date:       2021-04-19 14:00:00
+author:     "luohq"
+header-img: "img/about-bg.jpg"
+tags:
+    - istio
+---
 # 1.istio-pilot日志级别
 编辑istio-system.deployment.istio-pilot，修改args中--log_output_level=default:指定日志级别
 

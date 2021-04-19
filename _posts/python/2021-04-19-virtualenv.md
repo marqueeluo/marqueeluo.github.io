@@ -1,3 +1,14 @@
+---
+layout:     post
+title:      "Python VirtualEnv"
+subtitle:   ""
+date:       2021-04-19 14:00:00
+author:     "luohq"
+header-img: "img/about-bg.jpg"
+tags:
+    - python
+---
+
 # 一、安装python39
 # 二、在python39中安装Twisted
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210106100037650.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
