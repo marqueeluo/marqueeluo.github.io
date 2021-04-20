@@ -11,12 +11,14 @@ tags:
 ---
 # Prometheus
 参考：
+
 [https://istio.io/latest/docs/ops/integrations/prometheus/](https://istio.io/latest/docs/ops/integrations/prometheus/)
 [https://istio.io/latest/docs/tasks/observability/metrics/tcp-metrics/](https://istio.io/latest/docs/tasks/observability/metrics/tcp-metrics/)
 [https://prometheus.io/docs/prometheus/latest/getting_started/](https://prometheus.io/docs/prometheus/latest/getting_started/)
 [Prometheus-中文文档](https://prometheus.fuckcloudnative.io/)
 
 1、配置文件：
+
 
 ```yaml
 # prom服务端全局配置
@@ -40,11 +42,13 @@ scrape_configs:
       # Prometheus expects metrics to be available on targets on a path of /metrics
       - targets: ['localhost:9090']
 ```
+
 2、启动命令
 
 ```bash
 ./prometheus --config.file=prometheus.yml
 ```
+
 3、访问方式
 [http://localhost:9090](http://localhost:9090)
 [http://localhost:9090/metrics](http://localhost:9090/metrics)
@@ -119,7 +123,9 @@ For each instance scrape, Prometheus stores a sample in the following time serie
 
 # Prometheus配置
 参考：[prometheus/configuration/#relabel_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config)
+
 1、relabel_config（重写label配置）
+
 ```yaml
 # The source labels select values from existing labels. Their content is concatenated
 # using the configured separator and matched against the configured regular expression
@@ -146,11 +152,14 @@ For each instance scrape, Prometheus stores a sample in the following time serie
 # Action to perform based on regex matching.
 [ action: <relabel_action> | default = replace ]
 ```
+
+
  **action:** `replace` | `keep` | `drop` | `labelmap` | `hashmod` | `labeldrop` | `labelkeep`
  
  <relabel_action> determines the relabeling action to take:
 
 `replace`: Match regex against the concatenated source_labels. Then, set target_label to replacement, with match group references (${1}, ${2}, ...) in replacement substituted by their value. If regex does not match, no replacement takes place.
+
 1. 设置指标待重写的labels集合为<font color='blue'>source_labels</font>
 2. 根据<font color='blue'>regex</font>匹配指标<font color='blue'>source_labels</font>对应的值
 3. 满足匹配则将<font color='blue'>replacement</font>作为新的值写入到指标的<font color='blue'>target_label</font>
@@ -158,13 +167,16 @@ For each instance scrape, Prometheus stores a sample in the following time serie
 
 
 `keep`: Drop targets for which regex does not match the concatenated source_labels.
+
 1. 根据<font color='blue'>regex</font>匹配指标<font color='blue'>source_labels</font>对应的值
 2. 满足匹配则保留指标的记录（target） 
 3. 不满足匹配则丢弃当前指标记录（target） 
 
 `drop`: Drop targets for which regex matches the concatenated source_labels.
+
 `hashmod`: Set target_label to the modulus of a hash of the concatenated source_labels.
 `labelmap`: Match regex against all label names. Then copy the values of the matching labels to label names given by replacement with match group references (${1}, ${2}, ...) in replacement substituted by their value.
+
 1. 根据<font color='blue'>regex</font>匹配指标的所有`labels名称`
 2. 满足匹配则`拷贝原label值`到<font color='blue'>replacement</font>指定的新label中
 3. 不满足匹配则不发生改变
@@ -177,6 +189,7 @@ For each instance scrape, Prometheus stores a sample in the following time serie
 参考：
 [prometheus/configuration/#kubernetes_sd_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config)
 [纯K8s配置：github - prometheus/examples/prometheus-kubernetes.yml](https://github.com/prometheus/prometheus/blob/release-2.25/documentation/examples/prometheus-kubernetes.yml)
+
 Kubernetes SD configurations allow retrieving scrape targets from `Kubernetes' REST API` and always staying `synchronized with the cluster state`.
 
 **Role types**: `node` | `service` | `pod` | `endpoints` | `ingress`
@@ -543,9 +556,12 @@ scrape_configs:
     replacement: $1
     action: replace
 ```
+
 # Prometheus规则（ Rules）
+
 - **recording rules**
 >precompute frequently needed or computationally expensive expressions and save their result as a new set of time series
+
 
 示例
 ```yaml
@@ -565,10 +581,13 @@ groups:
 	     [ <labelname>: <labelvalue> ]
 ```
 
+
 - **alerting rules**
 >Alerting rules allow you to define alert conditions based on Prometheus expression language expressions and to send notifications about firing alerts to an external service. Whenever the alert expression results in one or more vector elements at a given point in time, the alert counts as active for these elements' label sets.
 
+
 示例
+
 
 ```yaml
 groups:
@@ -644,7 +663,9 @@ groups:
 
 
 # Prometheus Querying
+
 #### four types（4种类型）
+
 In Prometheus's expression language, an expression or sub-expression can evaluate to one of four types:
 
 - **Instant vector** - a set of time series containing a single sample for each time series, all sharing the same timestamp
@@ -652,7 +673,9 @@ In Prometheus's expression language, an expression or sub-expression can evaluat
 - **Scalar** - a simple numeric floating point value
 - **String** - a simple string value; currently `unused`
 
+
 #### label matching operators（label匹配 - 操作符）
+
 It is also possible to `negatively match a label value`, or to `match label values against regular expressions`. The following label matching operators exist:
 
 - **=**: Select labels that are exactly equal to the provided string.
@@ -661,7 +684,9 @@ It is also possible to `negatively match a label value`, or to `match label valu
 - **!~**: Select labels that do not regex-match the provided string.
 
 #### time durations（持续时间）
+
 Time durations are specified as a number, followed immediately by one of the following units:
+
 - **ms** - milliseconds
 - **s** - seconds
 - **m** - minutes
@@ -688,6 +713,7 @@ http_requests_total @ 1609746000
 ```
 
 #### Arithmetic binary operators（二元算数 - 操作符）
+
 - \+ (addition)
 - \- (subtraction)
 - \* (multiplication)
@@ -696,6 +722,7 @@ http_requests_total @ 1609746000
 - ^ (power/exponentiation)
 
 #### Comparison binary operators（二元比较 - 操作符）
+
 - == (equal)
 - != (not-equal)
 - \> (greater-than)
@@ -704,17 +731,21 @@ http_requests_total @ 1609746000
 - <= (less-or-equal)
 
 #### Logical/set binary operators（二元逻辑比较 - 操作符）
+
 - and (intersection)
 - or (union)
 - unless (complement)
 
 #### One-to-one vector matches（1对1 - 向量匹配）
 
+
 ```bash
 <vector expr> <bin-op> ignoring(<label list>) <vector expr>
 <vector expr> <bin-op> on(<label list>) <vector expr>
 ```
+
 #### Many-to-one and one-to-many vector matches（多对1、1对多 - 向量匹配）
+
 
 ```bash
 <vector expr> <bin-op> ignoring(<label list>) group_left(<label list>) <vector expr>
@@ -724,6 +755,7 @@ http_requests_total @ 1609746000
 ```
 
 #### Aggregation operators（聚合运算 - 操作符）
+
 
 - **sum** (calculate sum over dimensions)
 - **min** (select minimum over dimensions)
@@ -744,9 +776,11 @@ http_requests_total @ 1609746000
 ```
 
 参考：
+
 [标准差stddev和方差stdvar的区别-标准差和方差公式](http://www.ab126.com/goju/9539.html)
 
 #### Binary operator precedence（二元操作符优先级）
+
 1. ^
 2. *, /, %
 3. +, -
@@ -755,6 +789,7 @@ http_requests_total @ 1609746000
 6. or
 
 #### FUNCTIONS（函数）
+
 参考：[【通俗易懂】CSDN - Prometheus的函数和计算公式](https://blog.csdn.net/wc1695040842/article/details/107013799)
 - abs()
 - absent()
@@ -775,6 +810,7 @@ http_requests_total @ 1609746000
 - hour()
 - idelta()
 - <font color='green'>increase()</font>
+
 >increase() 函数表示某段时间内数据的增量
 >rate() 函数则表示某段时间内数据的平均值
 >两个函数如何选取使用？
@@ -794,6 +830,7 @@ http_requests_total @ 1609746000
 - month()
 - predict_linear()
 - <font color='green'>rate()</font>
+
 >rate() 函数是专门搭配counter数据类型使用函数，功能是取counter在这个时间段中平均每秒的增量。
 >例如：获取eth0网卡1m内每秒流量的平均值
 >rate(node_network_receive_bytes_total{device="eth0"}[1m])
