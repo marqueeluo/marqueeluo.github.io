@@ -13,10 +13,11 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     marquee
-zhihu_username:     marquee
-github_username:    marquee
-twitter_username:   marquee
+#weibo_username:     marquee
+#zhihu_username:     marquee
+github_username:    marqueeluo
+csdn_username:      luo15242208310
+#twitter_username:   marquee
 #facebook_username:  marquee
 #linkedin_username:  firstname-lastname-idxxxx
 
