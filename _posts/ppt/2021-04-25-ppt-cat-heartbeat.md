@@ -42,7 +42,7 @@ cat.status.message.overflowed | cat客户端丢弃的（1小时以前的）消�
 #### jvm.memory - 1
 | 指标 | 说明      |
 |:-------- | :-------|
-jvm.memory.used | jvm实际使用的内存大小（单位：字节）<br/>`total - free` <br/> `cur capacity - free`<br/>` cur utilization`
+jvm.memory.used | jvm实际使用的内存大小（单位：字节）（total - free）
 jvm.memory.used.percent | jvm内存使用率（当前使用 / 最大允许使用 * 100）
 jvm.memory.nonheap.used | jvm实际使用的非堆内存大小（单位：字节）
 jvm.memory.nonheap.used.percent | jvm非堆内存使用率（当前使用 / 最大允许使用 * 100）
@@ -59,12 +59,12 @@ jvm.memory.survivor.used | jvm survivor区实际使用的内存大小（单位�
 | 指标 | 说明      |
 |:-------- | :-------|
 jvm.memory.survivor.used.percent |  jvm survivor区使用率（当前使用 / 最大允许使用 * 100）
-jvm.memory.perm.used |  jvm永久代实际使用的内存大小（单位：字节）<br/>`适用于<JDK8`
-jvm.memory.perm.used.percent | jvm永久代使用率（当前使用 / 最大允许使用 * 100）<br/>`适用于<JDK8`
-jvm.memory.metaspace.used |  jvm元空间实际使用的内存大小（单位：字节）<br/>`适用于JDK8`
-jvm.memory.metaspace.used.percent |  jvm元空间使用率（当前使用 / 最大允许使用 * 100）<br/>`适用于JDK8`
-jvm.memory.codecache.used | jvm代码缓冲区实际使用的内存大小（单位：字节）<br/>`适用于JDK8`
-jvm.memory.codecache.used.percent | jvm代码缓冲区使用率（当前使用 / 最大允许使用 * 100）<br/>`适用于JDK8`
+jvm.memory.perm.used |  jvm永久代实际使用的内存大小（单位：字节）
+jvm.memory.perm.used.percent | jvm永久代使用率（当前使用 / 最大允许使用 * 100）
+jvm.memory.metaspace.used |  jvm元空间实际使用的内存大小（单位：字节）
+jvm.memory.metaspace.used.percent |  jvm元空间使用率（当前使用 / 最大允许使用 * 100）
+jvm.memory.codecache.used | jvm代码缓冲区实际使用的内存大小（单位：字节）
+jvm.memory.codecache.used.percent | jvm代码缓冲区使用率（当前使用 / 最大允许使用 * 100）
 jvm.nio.directbuffer.used | java.nio:type=BufferPool,name=direct对象使用内存（单位：字节）
 jvm.nio.mapped.used | java.nio:type=BufferPool,name=mapped对象使用内存（单位：字节）
 
@@ -119,6 +119,7 @@ java.cat.version | cat版本
 ---
 
 ### jvm.classingloading
+| 指标 | 说明      |
 |:-------- | :-------|
 jvm.classloading.loaded.count | 当前Jvm加载的类数量
 jvm.classloading.totalloaded.count | Jvm启动后累计加载的类数量
@@ -129,11 +130,11 @@ jvm.classloading.unloaded.count | Jvm启动后累计卸载的类数量
 #### system.process
 | 指标 | 说明      |
 |:-------- | :-------|
-system.load.average | 操作系统级（即所属宿主机）上一分钟的平均系统负载<br/>（系统负载即同时运行的进程数，通常系统负载不超过CPU数量即为正常）<br/>`getSystemLoadAverage`
-cpu.system.load.percent   | 操作系统级（即所属宿主机）cpu使用率（包括全部CPU，取值范围0-100）<br/>`getSystemCpuLoad()`
-cpu.jvm.load.percent  | jvm进程（包括jvm内部线程和应用线程）的cpu使用率（与全部CPU进行比较）<br/>`getProcessCpuLoad()`
-system.process.used.phyical.memory |   操作系统级（即所属宿主机）当前使用内存大小（单位：字节）<br/>`getTotalPhysicalMemorySize() - getFreePhysicalMemorySize()`
-system.process.used.swap.size | 操作系统级（即所属宿主机）当前使用交换空间大小（单位：字节）<br/>`getTotalSwapSpaceSize() - getFreeSwapSpaceSize()`
+system.load.average | 操作系统级（即所属宿主机）上一分钟的平均系统负载
+cpu.system.load.percent   | 操作系统级（即所属宿主机）cpu使用率（包括全部CPU，取值范围0-100）
+cpu.jvm.load.percent  | jvm进程（包括jvm内部线程和应用线程）的cpu使用率（与全部CPU进行比较）
+system.process.used.phyical.memory |   操作系统级（即所属宿主机）当前使用内存大小（单位：字节）
+system.process.used.swap.size | 操作系统级（即所属宿主机）当前使用交换空间大小（单位：字节）
 
 ---
 
