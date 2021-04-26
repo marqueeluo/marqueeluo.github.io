@@ -13,5 +13,3 @@ Hi，我是罗恒全，云端服务践行者，Java|Spring|K8s|Istio，[美行�
 - XPosed动态劫持（拦截微信公众号） 
 
 ##### 分享推荐
-
-- [Jvm调优]({% link _posts/java/2021-04-19-jvm.md})
