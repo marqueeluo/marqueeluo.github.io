@@ -9,10 +9,8 @@ tags:
     - ppt
 ---
 <textarea data-template>
-源码参见：
-
 ```xml
- <!-- https://mvnrepository.com/artifact/com.dianping.cat/cat-client -->
+<!-- https://mvnrepository.com/artifact/com.dianping.cat/cat-client -->
 <dependency>
     <groupId>com.dianping.cat</groupId>
     <artifactId>cat-client</artifactId>
@@ -22,9 +20,13 @@ tags:
 
 **注：**
 以下的指标都是以1分钟为统计单位，且每分钟后都重新计数
+
 --
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210325110334799.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
 ---
+
 #### cat.status
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -34,7 +36,9 @@ cat.status.send.atomic.queue.size | cat客户端atomic队列size（<font color='
 cat.status.message.bytes | cat客户端上报的消息message字节byte数量
 cat.status.message.produced | cat客户端上报的消息message数量
 cat.status.message.overflowed | cat客户端丢弃的（1小时以前的）消息message数量
+
 ---
+
 #### jvm.memory - 1
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -48,7 +52,9 @@ jvm.memory.oldgen.used.percent.after.fullgc |  执行过fullgc后的jvm老生代
 jvm.memory.eden.used | jvm新生代实际使用的内存大小（单位：字节）
 jvm.memory.eden.used.percent |  jvm新生代使用率（当前使用 / 最大允许使用 * 100）
 jvm.memory.survivor.used | jvm survivor区实际使用的内存大小（单位：字节）
+
 --
+
 #### jvm.memory - 2
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -61,7 +67,9 @@ jvm.memory.codecache.used | jvm代码缓冲区实际使用的内存大小（单�
 jvm.memory.codecache.used.percent | jvm代码缓冲区使用率（当前使用 / 最大允许使用 * 100）<br/>`适用于JDK8`
 jvm.nio.directbuffer.used | java.nio:type=BufferPool,name=direct对象使用内存（单位：字节）
 jvm.nio.mapped.used | java.nio:type=BufferPool,name=mapped对象使用内存（单位：字节）
+
 ---
+
 #### jvm.gc
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -72,7 +80,9 @@ jvm.fullgc.time | jvm fullgc持续时长总和
 jvm.younggc.count | jvm younggc次数
 jvm.younggc.time | jvm younggc持续时长总和
 jvm.younggc.meantime | jvm younggc平均时长
+
 ---
+
 #### jvm.thread - 1 
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -83,7 +93,9 @@ jvm.thread.new.count | 当前new状态的线程数量
 jvm.thread.runnable.count | 当前runnable状态的线程数量
 jvm.thread.blocked.count | 当前blocked状态的线程数量
 jvm.thread.waiting.count | 当前waiting状态的线程数量
+
 --
+
 #### jvm.thread - 2 
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -93,7 +105,9 @@ jvm.thread.deadlock.count | 当前发生死锁的线程数量
 jvm.thread.http.count | tomcat, jetty工作线程数量（ http-, catalina-exec-, @qtp）
 jvm.thread.cat.count | CAT客户端工作线程数量（Cat-, cat-）
 jvm.thread.pigeon.count | pigeon工作线程数量（Pigeon-, DPSF-, Client-ResponseProcessor）
+
 ---
+
 #### system.static
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -101,13 +115,17 @@ system.java.classpath | Java classPath路径
 system.java.verision | Java版本（对应系统属性java.version）
 system.user.name | Java用户名（对应系统属性user.name）
 java.cat.version | cat版本
+
 ---
+
 ### jvm.classingloading
 |:-------- | :-------|
 jvm.classloading.loaded.count | 当前Jvm加载的类数量
 jvm.classloading.totalloaded.count | Jvm启动后累计加载的类数量
 jvm.classloading.unloaded.count | Jvm启动后累计卸载的类数量
+
 ---
+
 #### system.process
 | 指标 | 说明      |
 |:-------- | :-------|
@@ -116,7 +134,9 @@ cpu.system.load.percent   | 操作系统级（即所属宿主机）cpu使用率�
 cpu.jvm.load.percent  | jvm进程（包括jvm内部线程和应用线程）的cpu使用率（与全部CPU进行比较）<br/>`getProcessCpuLoad()`
 system.process.used.phyical.memory |   操作系统级（即所属宿主机）当前使用内存大小（单位：字节）<br/>`getTotalPhysicalMemorySize() - getFreePhysicalMemorySize()`
 system.process.used.swap.size | 操作系统级（即所属宿主机）当前使用交换空间大小（单位：字节）<br/>`getTotalSwapSpaceSize() - getFreeSwapSpaceSize()`
+
 ---
+
 #### http.status
 | 指标 | 说明      |
 |:-------- | :-------|

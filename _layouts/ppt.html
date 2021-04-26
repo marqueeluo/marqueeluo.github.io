@@ -21,7 +21,7 @@
     <div class="reveal">
         <div class="slides">
             <!-- Slides are separated by newline + three dashes + newline, vertical slides identical but two dashes -->
-            <section data-markdown data-separator="---" data-separator-vertical="--">
+            <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
                 {{ content }}
             </section>
         </div>

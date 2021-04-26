@@ -21,7 +21,9 @@ tags:
 ```
 curl -X POST localhost:15000/logging?level=trace
 ```
+
 ---
+
 # 4.istio-proxy access日志设置
 官方参考：[https://istio.io/docs/tasks/telemetry/logs/access-log/](https://istio.io/docs/tasks/telemetry/logs/access-log/)
 
@@ -30,14 +32,20 @@ curl -X POST localhost:15000/logging?level=trace
 修改后即可在istio-proxy看到如下accessLog（业务app pod容器无需重启）： 
 
 默认accessLogFormat：
+
 --
+
 通过如下命令查看accessLogFormat配置：
 ```
 istioctl proxy-config listeners <your pod> -n <your namespace> -o json
 ```
+
 --
+
 [%START_TIME%] \"%REQ(:METHOD)% %REQ(X-ENVOY-ORIGINAL-PATH?:PATH)% %PROTOCOL%\" %RESPONSE_CODE% %RESPONSE_FLAGS% \"%DYNAMIC_METADATA(istio.mixer:status)%\" %BYTES_RECEIVED% %BYTES_SENT% %DURATION% %RESP(X-ENVOY-UPSTREAM-SERVICE-TIME)% \"%REQ(X-FORWARDED-FOR)%\" \"%REQ(USER-AGENT)%\" \"%REQ(X-REQUEST-ID)%\" \"%REQ(:AUTHORITY)%\" \"%UPSTREAM_HOST%\" %UPSTREAM_CLUSTER% %UPSTREAM_LOCAL_ADDRESS% %DOWNSTREAM_LOCAL_ADDRESS% %DOWNSTREAM_REMOTE_ADDRESS% %REQUESTED_SERVER_NAME%\n
+
 --
+
 实际日志与默认格式对比：
 ```
 [2019-09-24T05:57:56.836Z] 
@@ -58,7 +66,9 @@ istioctl proxy-config listeners <your pod> -n <your namespace> -o json
 \"%UPSTREAM_HOST%\" %UPSTREAM_CLUSTER% %UPSTREAM_LOCAL_ADDRESS% 
 %DOWNSTREAM_LOCAL_ADDRESS% %DOWNSTREAM_REMOTE_ADDRESS% %REQUESTED_SERVER_NAME%\n
 ```
+
 --
+
 Date 
 MPP: method path protocol
 RFS: respCode respFlag metadataStaus
@@ -67,10 +77,14 @@ FARA: x-forward-for user-agent x-request-id authority
 UCL: upstream-host upstream-cluster upstream-local-address
 DRS: downstream-localhocal-address downstream-remote-address requested-server-name(sni)
 3-3-4-4-3-3
+
 --
+
 其中RESPONSE_FLAGS定义如下：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210413163605230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
 --
+
 envoy log参考：
 
 Envoy官方参考 - access_log#config-access-log-default-format
@@ -93,7 +107,9 @@ stackoverflow - what-is-istio-proxy-access-log-mean 
 
 参考：ISTIO/DOCS/TASKS/OBSERVABILITY/LOGS/Getting Envoy's Access Logs
 ![xxx](https://img-blog.csdnimg.cn/20210401085241332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
 ---
+
 5.Springboot Tomcat访问日志
 开启如下配置：
 
