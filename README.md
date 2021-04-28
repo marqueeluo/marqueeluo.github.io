@@ -1,7 +1,6 @@
-[Hux Blog](https://huangxuan.me)
+该博客参考于[🔗GitHub - Hux Blog](https://github.com/Huxpro/huxpro.github.io)
+笔者博客地址：[🔗Luohq Blog](https://marqueeluo.github.io)
 ================================
-
-> I never expected this becomes popular.
 
 ![](http://huangxuan.me/img/blog-desktop.jpg)
 
