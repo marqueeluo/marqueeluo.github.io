@@ -9,7 +9,7 @@ tags:
     - ppt
 ---
 <textarea data-template>
-#### CAT心跳指标
+#### ❤CAT心跳指标
 ```xml
 <!-- https://mvnrepository.com/artifact/com.dianping.cat/cat-client -->
 <dependency>
@@ -27,46 +27,46 @@ tags:
 
 ---
 
-#### cat.status
+#### ⭐cat.status
 ![img](/img/in-post/cat-heartbeat/cat-status.png)
 
 ---
 
-#### jvm.memory - 1
+#### ⭐jvm.memory
 ![img](/img/in-post/cat-heartbeat/cat-jvm-1.png)
 
 --
 
-#### jvm.memory - 2
+#### ⭐jvm.memory
 ![img](/img/in-post/cat-heartbeat/cat-jvm-2.png)
 
 ---
 
-#### jvm.gc
+#### ⭐jvm.gc
 ![img](/img/in-post/cat-heartbeat/cat-jvmgc.png)
 
 ---
 
-#### jvm.thread
+#### ⭐jvm.thread
 ![img](/img/in-post/cat-heartbeat/cat-thread.png)
 
 ---
 
-#### system.static
+#### ⭐system.static
 ![img](/img/in-post/cat-heartbeat/cat-static.png)
 
 ---
 
-### jvm.classingloading
+### ⭐jvm.classingloading
 ![img](/img/in-post/cat-heartbeat/cat-class.png)
 
 ---
 
-#### system.process
+#### ⭐system.process
 ![img](/img/in-post/cat-heartbeat/cat-systemprocess.png)
 
 ---
 
-#### http.status
+#### ⭐http.status
 ![img](/img/in-post/cat-heartbeat/cat-http.png)
 </textarea>
