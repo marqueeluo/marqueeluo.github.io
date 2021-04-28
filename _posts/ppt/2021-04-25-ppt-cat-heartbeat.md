@@ -9,6 +9,7 @@ tags:
     - ppt
 ---
 <textarea data-template>
+#### CAT心跳指标
 ```xml
 <!-- https://mvnrepository.com/artifact/com.dianping.cat/cat-client -->
 <dependency>
@@ -17,7 +18,6 @@ tags:
     <version>3.0.0</version>
 </dependency>
 ```
-
 **注：**
 以下的指标都是以1分钟为统计单位，且每分钟后都重新计数
 
@@ -47,7 +47,7 @@ tags:
 
 ---
 
-#### jvm.thread - 1 
+#### jvm.thread
 ![img](/img/in-post/cat-heartbeat/cat-thread.png)
 
 ---
