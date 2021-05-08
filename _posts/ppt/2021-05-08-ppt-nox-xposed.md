@@ -17,6 +17,11 @@ tags:
 - 五、xposed重新install
 - 六、登录新的微信账号
 
+--
+
+<font color='red'><b>相关依赖🍀 </b></font><br/>
+![img](/img/in-post/wx-xposed/nox-dependency.png)
+
 ---
 
 ### 一、安装夜神模拟器
