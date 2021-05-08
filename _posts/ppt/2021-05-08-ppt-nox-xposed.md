@@ -49,7 +49,7 @@ tags:
 
 ### 五、Xposed Installer重新install
 ![img](https://img-blog.csdnimg.cn/20210508112814877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
-
+<br/>
 注：安装完成后按提示重启设备
 
 --
@@ -60,5 +60,9 @@ tags:
 
 ### 六、登录新的微信账号
 ![img](/img/in-post/wx-xposed/nox-wx-login.png)
+
+---
+
+# OVER✌️
 
 </textarea>
