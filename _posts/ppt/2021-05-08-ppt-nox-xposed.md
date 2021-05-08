@@ -19,7 +19,7 @@ tags:
 
 --
 
-<font color='red'><b>相关依赖🍀 </b></font><br/>
+<font color='green'><b>相关依赖🍀 </b></font>
 ![img](/img/in-post/wx-xposed/nox-dependency.png)
 
 ---
