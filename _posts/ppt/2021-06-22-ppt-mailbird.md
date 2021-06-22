@@ -30,14 +30,17 @@ tags:
 
 ### 左边栏向右拖拽，即可展开（更喜欢展开的布局，更直观）
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021062115064759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
 ---
 
 ### 选择不同的主题
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021062115460950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
 
 ---
+
 ### 设置语言
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210622101101484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
 ---
 
 ### 禁用自动更新
