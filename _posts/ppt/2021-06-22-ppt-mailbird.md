@@ -54,7 +54,6 @@ tags:
 ---
 
 <font color='red'><b>注意💣</b></font><br/>
-**注：**
 1. mailbird需付费使用...
 2. 其中也使用过yomail（已停止维护）、mailspring（不支持pop3）等等，最终选用mailbird
 3. 破解完一定要设置不自动更新，否则mailbird自动升级后会导致破解失效😭
