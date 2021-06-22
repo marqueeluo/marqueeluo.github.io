@@ -18,8 +18,8 @@ tags:
 --
 
 <font color='green'><b>相关依赖🍀 </b></font><br/>
-[具体破解步骤及mailbird下载](http://www.ddooo.com/softdown/181406.htm)<br/>
-[mailbird布局设置](https://support.getmailbird.com/hc/en-us/articles/360058646213-Left-Navigation-Pane-Redesign)
+[:link:具体破解步骤及mailbird下载](http://www.ddooo.com/softdown/181406.htm)<br/>
+[:link:mailbird布局设置](https://support.getmailbird.com/hc/en-us/articles/360058646213-Left-Navigation-Pane-Redesign)
 
 ---
 
