@@ -26,9 +26,9 @@ tags:
 --
 
 <font color='green'><b>相关依赖🍀 </b></font><br/>
-1. [🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)<br/>
-2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement](http://http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement)<Br/>
-3. [🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)<br/>
+1. [🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)
+2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement](http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement)
+3. [🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)
 
 
 ---
