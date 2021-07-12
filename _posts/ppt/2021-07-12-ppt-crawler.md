@@ -39,7 +39,7 @@ tags:
 3. 依次打开提取出的超链接，并确定详情界面中的标题、发布日期、正文内容
 4. 将以上3条组装成[🔗爬虫配置JSON规则](https://marqueeluo.github.io/2021/07/12/ppt-crawler/#/2)
 5. 通过[🔗爬虫规则验证工具](https://marqueeluo.github.io/2021/07/12/ppt-crawler/#/3)验证爬取规则是否正确
-4. 在爬虫工具中将爬虫配置JSON规则[🔗添加到爬虫数据来源](https://marqueeluo.github.io/2021/07/12/ppt-crawler/#/3)
+4. 在爬虫工具中将爬虫配置JSON规则[🔗添加到爬虫数据来源](https://marqueeluo.github.io/2021/07/12/ppt-crawler/#/4)
 
 --
 
