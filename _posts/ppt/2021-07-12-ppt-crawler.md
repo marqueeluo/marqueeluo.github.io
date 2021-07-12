@@ -27,7 +27,7 @@ tags:
 
 <font color='green'><b>相关依赖🍀 </b></font><br/>
 1. [🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)<br/>
-2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement](http://http://mx-datacollection-tool.inner.mxnavi.com//mainPage/DataSourceManagement)<Br/>
+2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement](http://http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement)<Br/>
 3. [🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)<br/>
 
 
@@ -82,6 +82,110 @@ tags:
 
 --
 
+### 爬虫规则配置建议：
+1. 尽量以CSS选择器配置
+2. 尽量减少选择器层级（可结合id、class等进行定位）
+
+--
+以下示例网站 - 蓬溪县人民政府 - 如下配置不建议：<br/>
+```json
+{
+    "start_urls": ["http://www.pengxi.gov.cn/notice"],
+    "crawl_rules": [
+        {
+            "restrict_xpath": "/html/body/div[2]/div[3]/div[1]/div/div[2]/div/div[2]/div/div/div/ul/li/a",
+            "callback": "parse_html"
+        }
+    ],
+    "item_rules": {
+        "title_xpath": ["/html/body/div[2]/div[3]/div[1]/div/div/div/div/div[2]/table/tbody/tr/td/table/tbody/tr[2]/td/b"],
+        "text_xpath": ["/html/body/div[2]/div[3]/div[1]/div/div/div/div/div[2]/table/tbody/tr/td/table/tbody/tr[4]/td/div"],
+        "publish_date_xpath": ["/html/body/div[2]/div[3]/div[1]/div/div/div/div/div[2]/table/tbody/tr/td/table/tbody/tr[3]/td/table/tbody/tr/td/div/span[6]"]
+    }
+}
+```
+问题：<br/>
+1. 实际获取不到链接
+2. 层级太多可读性不好，出问题也不好排查
+
+--
+
+建议使用CSS选择器修改如下：<br/>
+```json
+{
+    "start_urls": ["http://www.pengxi.gov.cn/notice"],
+    "crawl_rules": [
+        {
+            "restrict_css": "div.portlet-column-last a",
+            "callback": "parse_html"
+        }
+    ],
+    "item_rules": {
+        "title_css": ["td.content-title"],
+        "text_css": ["div.content-body"],
+        "publish_date_css": ["div.content-baseInfo"]
+    }
+}
+
+```
+
+--
+
+若使用xpath，建议修改如下：<br/>
+```json
+{
+    "start_urls": ["http://www.pengxi.gov.cn/notice"],
+    "crawl_rules": [
+        {
+            "restrict_xpath": '//div[contains(@class, "classportlet-column-last")]//a',
+            "callback": "parse_html"
+        }
+    ],
+    "item_rules": {
+        "title_xpath": ['//td[@class="content-title"]'],
+        "text_xpath": ['//div[@class="content-body"]'],
+        "publish_date_xpath": ['//div[@class="content-baseInfo"]']
+    }
+}
+
+```
+
+--
+
+爬取规则分为2种：<br/>
+1. 基于html文档爬取
+2. 基于Ajax.json爬取
+如何区分：<br/>
+- 查看web浏览器中控制台中第一个请求，
+- 如果第一个请求response中含有链接，即为方式1，
+- 否则即为方式2，需要查看控制台中xhr请求识别json请求
+
+
+--
+
+百家号 - 沭阳咨询<br/>
+```json
+{
+    "start_urls": [
+        "https://mbd.baidu.com/webpage?tab=main&num=10&uk=ZaalYuiJExafY8flVtp0CQ&source=pc&type=newhome&action=dynamic&format=json&otherext=h5_20201217112057&Tenger-Mhor=601671344"
+    ],
+    "request_headers": {},
+    "request_cookies": {
+        "BAIDUID": "EFA0180B2AD916F6F2C907000311BF6E:FG=1"
+    },
+    "crawl_rules": [{
+            "restrict_json": "data.list[*].itemData.url",
+            "callback": "parse_html"
+        }
+    ],
+    "item_rules": {
+        "title_css": ["#ssr-content > div.app-module_contentWrapper_2jN0Z > div.app-module_headerWrapper_3tNyU > div > h2"],
+        "text_css": ["div.index-module_articleWrap_2Zphx"],
+        "publish_date_css": ["#ssr-content > div.app-module_contentWrapper_2jN0Z > div.app-module_headerWrapper_3tNyU > div > div > div.index-module_authorTxt_V6XfG > div"]
+    }
+}
+```
+
 在Scrapy中支持css扩展属性如下：<br/>
 - （1）::text  获取元素文本信息
 - （2）::attr(name)  获取元素属性值
@@ -104,13 +208,6 @@ tags:
 
 ### 添加爬虫数据来源
 ![img](https://img-blog.csdnimg.cn/20210712100013690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
-
----
-
-<font color='red'><b>注意💣</b></font><br/>
-1. mailbird需付费使用...
-2. 其中也使用过yomail（已停止维护）、mailspring（不支持pop3）等等，最终选用mailbird
-3. 破解完一定要设置不自动更新，否则mailbird自动升级后会导致破解失效😭
 
 ---
 
