@@ -153,14 +153,8 @@ tags:
 --
 
 ### 爬取规则分为2种方式
-1. 基于html文档爬取
-2. 基于Ajax.json爬取
-
-如何区分以上2中类型<br/>
-1. 查看web浏览器中控制台中第一个请求，
-2. 如果第一个请求response中含有链接，即为方式1，
-3. 否则即为方式2，需要查看控制台中xhr请求识别json请求
-
+1. 基于html文档爬取（查看web浏览器中控制台中第一个请求，如果第一个请求response中含有链接，即为方式1）
+2. 基于Ajax.json爬取（否则即为方式2，需要查看控制台中xhr请求识别json请求）
 
 --
 
@@ -202,10 +196,6 @@ tags:
 
 ### 爬取结果
 ![img](https://img-blog.csdnimg.cn/20210712105500382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
-
---
-### 新增数据来源
-![img](https://img-blog.csdnimg.cn/2021071211133744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
 
 ---
 
