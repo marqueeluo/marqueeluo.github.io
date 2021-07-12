@@ -9,18 +9,27 @@ tags:
     - ppt
 ---
 <textarea data-template>
-### 背景
+### 业务背景
 1. 数据组想要第一时间获取各地限行规则
 2. 数据组整理了大量提供限行新闻的网站、微信公众号、新浪微博
 3. 数据组仅需要网站内容中包含限行提示的内容（即文章详情中包含关键字'限行'等）
 4. 网站内容的提取过程大致遵循：网站链接 -> 文章链接列表 -> 点击链接获取正文详情
-5. 对于网站的超链接列表提取基于Scrapy.CrawlSpider rules，对文章详情内容的提取基于ItemLoaders selector
+
+--
+ 
+### 开发背景
+1. 开发一个通用的网站爬取工具，最好可以配置爬取规则
+2. 爬虫工具选择Python Scrapy：对于网站的超链接列表提取基于Scrapy.CrawlSpider rules，对文章详情内容的提取基于ItemLoaders selector
+3. 爬虫规则基于JSON（start_urls, crawl_rules, item_rules）
+4. 需要提供一个爬虫规则验证工具（Scrapy+Flask），可以验证爬取规则对应的爬取结果是否正确
 
 --
 
 <font color='green'><b>相关依赖🍀 </b></font><br/>
-[🔗具体破解步骤及mailbird下载](http://www.ddooo.com/softdown/181406.htm)<br/>
-[🔗mailbird布局设置](https://support.getmailbird.com/hc/en-us/articles/360058646213-Left-Navigation-Pane-Redesign)
+[🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)<br/>
+[🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement](http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement)<Br/>
+[🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)<br/>
+
 
 ---
 
@@ -63,13 +72,18 @@ tags:
     # 目前支持属性：title, text, pulish_date
     "item_rules": {
         # {propName}_{type}: [selector1, selector2,...]且取第一个selector有值的结果（多个selector兼容不同网页布局）
-        "title_css": ["body > div.wrapper > div.content_l > div.title.daoyu > h1 > strong::text"],
+        "title_css": ["body > div.wrapper > div.content_l > div.title.daoyu > h1 > strong"],
         "text_css": ["#bo"],
-        "publish_date_css": ["body > div.wrapper > div.content_l > div.title.daoyu > div.article-info > span.time::text"]
+        "publish_date_css": ["body > div.wrapper > div.content_l > div.title.daoyu > div.article-info > span.time"]
     }
 }
 ```
 
+--
+
+在Scrapy中支持css扩展属性如下：<br/>
+- （1）::text  获取元素文本信息
+- （2）::attr(name)  获取元素属性值
 
 ---
 
