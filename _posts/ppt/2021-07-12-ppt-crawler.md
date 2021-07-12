@@ -27,7 +27,7 @@ tags:
 
 <font color='green'><b>相关依赖🍀 </b></font><br/>
 1. [🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)<br/>
-2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement](http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement)<Br/>
+2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement](http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement)<Br/>
 3. [🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)<br/>
 
 
@@ -37,7 +37,9 @@ tags:
 1. 给出web网站初始界面链接URL
 2. 根据css（或xpath）规则提取出初始界面中的超链接（a标签）列表
 3. 依次打开提取出的超链接，并确定详情界面中的标题、发布日期、正文内容
-4. 将爬虫规则添加到爬虫数据来源界面：http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement
+4. 将以上3条组装成爬虫配置JSON规则
+5. 通过爬虫规则验证工具验证爬取规则是否正确
+4. 将爬虫配置JSON规则添加到爬虫数据来源界面：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement
 
 --
 
@@ -49,7 +51,7 @@ tags:
 
 ---
 
-### 爬虫示例配置
+### 爬虫示例配置JSON
 ```json
 # 规则【本地宝-北京】示例如下（更多示例参见附件：crawl_config.txt）
 {
