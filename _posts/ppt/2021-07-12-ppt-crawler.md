@@ -207,6 +207,11 @@ tags:
 ### 添加爬虫数据来源
 ![img](https://img-blog.csdnimg.cn/20210712100013690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
 
+--
+
+<font color='red'><b>注意</b></font><br/>
+1. 同类网站在录入【来源名称】时，需指定统一前缀（如：百家号-, 搜狐新闻-），以方便后续统计
+
 ---
 
 # OVER✌️
