@@ -16,7 +16,7 @@ tags:
 4. 网站内容的提取过程大致遵循：网站链接 -> 文章链接列表 -> 点击链接获取正文详情
 
 --
- 
+
 ### 开发背景
 1. 开发一个通用的网站爬取工具，最好可以配置爬取规则
 2. 爬虫工具选择Python Scrapy：对于网站的超链接列表提取基于Scrapy.CrawlSpider rules，对文章详情内容的提取基于ItemLoaders selector
@@ -26,9 +26,9 @@ tags:
 --
 
 <font color='green'><b>相关依赖🍀 </b></font><br/>
-[🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)<br/>
-[🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement](http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement)<Br/>
-[🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)<br/>
+1. [🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)<br/>
+2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement](http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement)<Br/>
+3. [🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)<br/>
 
 
 ---
@@ -50,9 +50,8 @@ tags:
 ---
 
 ### 爬虫示例配置
-规则【本地宝-北京】示例如下（更多示例参见附件：crawl_config.txt）：
 ```json
-
+# 规则【本地宝-北京】示例如下（更多示例参见附件：crawl_config.txt）
 {
     # 初始爬取URL（支持多个）
     "start_urls": [
