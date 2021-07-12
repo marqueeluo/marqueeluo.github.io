@@ -27,7 +27,7 @@ tags:
 
 <font color='green'><b>相关依赖🍀 </b></font><br/>
 1. [🔗Python Scrapy官方文档：https://docs.scrapy.org/en/latest/intro/overview.html](https://docs.scrapy.org/en/latest/intro/overview.html)<br/>
-2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement](http://mx-datacollection-tool-ln.mxnavi.com/mainPage/DataSourceManagement)<Br/>
+2. [🔗爬虫工具 - 添加数据来源：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement](http://http://mx-datacollection-tool.inner.mxnavi.com//mainPage/DataSourceManagement)<Br/>
 3. [🔗爬虫配置验证工具：http://mx-crawl-spider-validator.inner.mxnavi.com/start](http://mx-crawl-spider-validator.inner.mxnavi.com/start)<br/>
 
 
@@ -37,9 +37,9 @@ tags:
 1. 给出web网站初始界面链接URL
 2. 根据css（或xpath）规则提取出初始界面中的超链接（a标签）列表
 3. 依次打开提取出的超链接，并确定详情界面中的标题、发布日期、正文内容
-4. 将以上3条组装成爬虫配置JSON规则
-5. 通过爬虫规则验证工具验证爬取规则是否正确
-4. 将爬虫配置JSON规则添加到爬虫数据来源界面：http://mx-datacollection-tool.inner.mxnavi.com/mainPage/DataSourceManagement
+4. 将以上3条组装成[🔗爬虫配置JSON规则](https://marqueeluo.github.io/2021/07/12/ppt-crawler/#/2)
+5. 通过[🔗爬虫规则验证工具](https://marqueeluo.github.io/2021/07/12/ppt-crawler/#/3)验证爬取规则是否正确
+4. 在爬虫工具中将爬虫配置JSON规则[🔗添加到爬虫数据来源](https://marqueeluo.github.io/2021/07/12/ppt-crawler/#/3)
 
 --
 
@@ -85,6 +85,25 @@ tags:
 在Scrapy中支持css扩展属性如下：<br/>
 - （1）::text  获取元素文本信息
 - （2）::attr(name)  获取元素属性值
+
+---
+
+### 爬虫验证工具
+![img](https://img-blog.csdnimg.cn/20210712105345616.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
+--
+
+### 爬取结果
+![img](https://img-blog.csdnimg.cn/20210712105500382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
+--
+### 新增数据来源
+![img](https://img-blog.csdnimg.cn/2021071211133744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+
+---
+
+### 添加爬虫数据来源
+![img](https://img-blog.csdnimg.cn/20210712100013690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
 
 ---
 
