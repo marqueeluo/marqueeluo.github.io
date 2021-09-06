@@ -156,6 +156,10 @@ For each instance scrape, Prometheus stores a sample in the following time serie
 
  **action:** `replace` | `keep` | `drop` | `labelmap` | `hashmod` | `labeldrop` | `labelkeep`
  
+ 
+ 
+
+ 
  <relabel_action> determines the relabeling action to take:
 
 `replace`: Match regex against the concatenated source_labels. Then, set target_label to replacement, with match group references (${1}, ${2}, ...) in replacement substituted by their value. If regex does not match, no replacement takes place.
