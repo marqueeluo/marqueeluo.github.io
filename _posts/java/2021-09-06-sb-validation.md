@@ -10,7 +10,7 @@ tags:
     - jvm
 ---
 
-@[TOC](目录)
+# spring-boot-validation-demo
 
 提到输入参数的基本验证（非空、长度、大小、格式...），在以前我们还是通过手写代码，各种if、else、StringUtils.isEmpty、CollectionUtils.isEmpty...，真感觉快要疯了，太繁琐，Low爆了...，其实在Java生态提供了一套标准[JSR-380（aka. Bean Validation 2.0，part of Jakarta EE and JavaSE）](https://jcp.org/en/jsr/detail?id=380)，它已成为`对象验证`事实上的标准，这套标准可以通过注解的形式（如@NotNull, @Size...）来对bean的属性进行验证。而`Hibernate Validator`对这套标准进行了实现，`SpringBoot Validation`无缝集成了Hibernate Validator、自定义验证器、自动验证的功能。下文将对SpringBoot集成Validation进行展开。
 
@@ -20,33 +20,160 @@ tags:
 
 # constraints分类
 JSR-380的支持的constrants注解汇总如下表：
-| 分类 | 注解      | 适用对象 | null是否验证通过 | 说明
-|:--------| :-- | :---- | :---- |:----
-| 非空 | @NotNull | 所有对象| No | 不是null
-| 非空 | @NotEmpty | CharSequence, Collection, Map, Array | No | 不是null、不是""、size>0
-| 非空 | @NotBlank | CharSequence | No | 不是null、trim后长度大于0
-| 非空 | @Null | 所有对象 | Yes | 是null
-| 长度 | @Size(min=0, max=Integer.MAX_VALUE) | CharSequence, Collection, Map, Array | Yes | 字符串长度、集合size
-| 大小 | @Positive | BigDecimal, BigInteger, byte, short, int, long, float, double | Yes | 数字>0
-| 大小 | @PositiveOrZero | BigDecimal, BigInteger, byte, short, int, long, float, double | Yes | 数字>=0
-| 大小 | @Negative | BigDecimal, BigInteger, byte, short, int, long, float, double | Yes | 数字<0
-| 大小 | @NegativeOrZero | BigDecimal, BigInteger, byte, short, int, long, float, double | Yes | 数字<=0
-| 大小 | @Min(value=0L) | BigDecimal, BigInteger, byte, short, int, long | Yes | 数字>=min.value
-| 大小 | @Max(value=0L) | BigDecimal, BigInteger, byte, short, int, long | Yes | 数字<=max.value
-| 大小 | @Range(min=0L, max=Long.MAX_VALUE) | BigDecimal, BigInteger, byte, short, int, long | Yes | range.min<=数字<=range.max
-| 大小 | @DecimalMin(value="") | BigDecimal, BigInteger, CharSequence, byte, short, int, long | Yes | 数字>=decimalMin.value
-| 大小 | @DecimalMax(value="") | BigDecimal, BigInteger, CharSequence, byte, short, int, long | Yes | 数字<=decimalMax.value
-| 日期 | @Past | <ul><li>java.util.Date</li><li>java.util.Calendar</li><li>java.time.Instant</li><li>java.time.LocalDate</li><li>java.time.LocalDateTime</li><li>java.time.LocalTime</li><li>java.time.MonthDay</li><li>java.time.OffsetDateTime</li><li>java.time.OffsetTime</li><li>java.time.Year</li><li>java.time.YearMonth</li><li>java.time.ZonedDateTime</li><li>java.time.chrono.HijrahDate</li><li>java.time.chrono.JapaneseDate</li><li>java.time.chrono.MinguoDate</li><li>java.time.chrono.ThaiBuddhistDate</li></ul> | Yes | 时间在当前时间之前
-| 日期 | @PastOrPresent | 同上 | Yes | 时间在当前时间之前 或者等于此时
-| 日期 | @Future | 同上 | Yes | 时间在当前时间之后
-| 日期 | @FutureOrPresent | 同上 | Yes | 时间在当前时间之后 或者等于此时
-| 格式 | @Pattern(regexp="", flags={}) | CharSequence | Yes | 匹配正则表达式
-| 格式 | @Email<br/>@Email(regexp=".*", flags={})| CharSequence | Yes | 匹配邮箱格式
-| 格式 | @Digts(integer=0, fraction=0) | BigDecimal, BigInteger, CharSequence, byte, short, int, long | Yes | 必须是数字类型，且满足整数位数<=digits.integer, 浮点位数<=digits.fraction
-| 布尔| @AssertTrue | boolean | Yes | 必须是true
-| 布尔| @AssertFalse | boolean | Yes | 必须是false
+<table>
+    <tr>
+        <th>分类</th>
+        <th>注解</th>
+        <th>适用对象</th>
+        <th>null是否验证通过</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td rowspan="4">非空</td>
+        <td>@NotNull</td>
+        <td>所有对象</td>
+        <td>No</td>
+        <td>不是null</td>
+    </tr>
+    <tr>
+        <td>@NotEmpty</td>
+        <td>CharSequence, Collection, Map, Array</td>
+        <td>No</td>
+        <td>不是null、不是""、size&gt;0</td>
+    </tr>
+    <tr>
+        <td>@NotBlank</td>
+        <td>CharSequence</td>
+        <td>No</td>
+        <td>不是null、trim后长度大于0</td>
+    </tr>
+    <tr>
+        <td>@Null</td>
+        <td>所有对象</td>
+        <td>Yes</td>
+        <td>是null</td>
+    </tr>
+    <tr>
+        <td>长度</td>
+        <td>@Size(min=0, max=Integer.MAX_VALUE)</td>
+        <td>CharSequence, Collection, Map, Array</td>
+        <td>Yes</td>
+        <td>字符串长度、集合size</td>
+    </tr>
+    <tr>
+        <td rowspan="9">大小</td>
+        <td>@Positive</td>
+        <td>BigDecimal, BigInteger, byte, short, int, long, float, double</td>
+        <td>Yes</td>
+        <td>数字&gt;0</td>
+    </tr>
+    <tr>
+        <td>@PositiveOrZero</td>
+        <td>BigDecimal, BigInteger, byte, short, int, long, float, double</td>
+        <td>Yes</td>
+        <td>数字&gt;=0</td>
+    </tr>
+    <tr>
+        <td>@Negative</td>
+        <td>BigDecimal, BigInteger, byte, short, int, long, float, double</td>
+        <td>Yes</td>
+        <td>数字&lt;0</td>
+    </tr>
+    <tr>
+        <td>@NegativeOrZero</td>
+        <td>BigDecimal, BigInteger, byte, short, int, long, float, double</td>
+        <td>Yes</td>
+        <td>数字&lt;=0</td>
+    </tr>
+    <tr>
+        <td>@Min(value=0L)</td>
+        <td>BigDecimal, BigInteger, byte, short, int, long</td>
+        <td>Yes</td>
+        <td>数字&gt;=min.value</td>
+    </tr>
+    <tr>
+        <td>@Max(value=0L)</td>
+        <td>BigDecimal, BigInteger, byte, short, int, long</td>
+        <td>Yes</td>
+        <td>数字&lt;=max.value</td>
+    </tr>
+    <tr>
+        <td>@Range(min=0L, max=Long.MAX_VALUE)</td>
+        <td>BigDecimal, BigInteger, byte, short, int, long</td>
+        <td>Yes</td>
+        <td>range.min&lt;=数字&lt;=range.max</td>
+    </tr>
+    <tr>
+        <td>@DecimalMin(value="")</td>
+        <td>BigDecimal, BigInteger, CharSequence, byte, short, int, long</td>
+        <td>Yes</td>
+        <td>数字&gt;=decimalMin.value</td>
+    </tr>
+    <tr>
+        <td>@DecimalMax(value="")</td>
+        <td>BigDecimal, BigInteger, CharSequence, byte, short, int, long</td>
+        <td>Yes</td>
+        <td>数字&lt;=decimalMax.value</td>
+    </tr>
+    <tr>
+        <td rowspan="4">日期</td>
+        <td>@Past</td>
+        <td><ul><li>java.util.Date</li><li>java.util.Calendar</li><li>java.time.Instant</li><li>java.time.LocalDate</li><li>java.time.LocalDateTime</li><li>java.time.LocalTime</li><li>java.time.MonthDay</li><li>java.time.OffsetDateTime</li><li>java.time.OffsetTime</li><li>java.time.Year</li><li>java.time.YearMonth</li><li>java.time.ZonedDateTime</li><li>java.time.chrono.HijrahDate</li><li>java.time.chrono.JapaneseDate</li><li>java.time.chrono.MinguoDate</li><li>java.time.chrono.ThaiBuddhistDate</li></ul></td>
+        <td>Yes</td>
+        <td>时间在当前时间之前</td>
+    </tr>
+    <tr>
+        <td>@PastOrPresent</td>
+        <td>同上</td>
+        <td>Yes</td>
+        <td>时间在当前时间之前 或者等于此时</td>
+    </tr>
+    <tr>
+        <td>@Future</td>
+        <td>同上</td>
+        <td>Yes</td>
+        <td>时间在当前时间之后</td>
+    </tr>
+    <tr>
+        <td>@FutureOrPresent</td>
+        <td>同上</td>
+        <td>Yes</td>
+        <td>时间在当前时间之后 或者等于此时</td>
+    </tr>
+    <tr>
+        <td rowspan="3">格式</td>
+        <td>@Pattern(regexp="", flags={})</td>
+        <td>CharSequence</td>
+        <td>Yes</td>
+        <td>匹配正则表达式</td>
+    </tr>
+    <tr>
+        <td>@Email<br/>@Email(regexp=".*", flags={})</td>
+        <td>CharSequence</td>
+        <td>Yes</td>
+        <td>匹配邮箱格式</td>
+    </tr>
+    <tr>
+        <td>@Digts(integer=0, fraction=0)</td>
+        <td>BigDecimal, BigInteger, CharSequence, byte, short, int, long</td>
+        <td>Yes</td>
+        <td>必须是数字类型，且满足整数位数&lt;=digits.integer, 浮点位数&lt;=digits.fraction</td>
+    </tr>
+    <tr>
+        <td rowspan="2">布尔</td>
+        <td>@AssertTrue</td>
+        <td>boolean</td>
+        <td>Yes</td>
+        <td>必须是true</td>
+    </tr>
+    <tr>
+        <td>@AssertFalse</td>
+        <td>boolean</td>
+        <td>Yes</td>
+        <td>必须是false</td>
+    </tr>
+</table>
 
-**注：** 后续还需补充Hibernate Validator中实现的constraints注解，如表中@Range。
 
 # 对象集成constraints示例
 ```java
@@ -315,8 +442,11 @@ public class ControllerAdviceHandler {
 
 # 自定义constraints
 自定义field constraint注解主要分为以下几步：
+
 （1）定义`constraint annotation注解及其属性`
+
 （2）通过注解的元注解`@Constraint(validatedBy = {})`关联的具体的验证器实现
+
 （3）实现`验证器`逻辑
 
 ## @DateFormat
@@ -453,7 +583,7 @@ public @interface PhoneNo {
 
 ```
 **注：** 同理可以实现@IdNo约束
-## 使用自定义constraint注解
+## 使用自定义constraints注解
 
 可将之前的对象集成示例中代码调整为使用自定义验证注解如下：
 
@@ -485,25 +615,38 @@ public class UserDto {
 }
 ```
 
-同时自定义constraints还支持`跨多参数`、`验证对象里的多个field`、`验证返回对象`等用法，待后续再详细探索。
+同时自定义contrain还支持`跨多参数`、`验证对象里的多个field`、`验证返回对象`等用法，待后续再详细探索。
 
 # 问题
 通过在对象属性、方法参数上`标注注解`的形式，需要`侵入代码`，之前有的架构师不喜欢这种风格。
+
 在一方开发时，我们有全部源码且在公司内部，这种方式还是可以的，且集成比较方便，
+
 但是依赖三方Api jar包（参数对象定义在jar包中），我们无法直接去修改参数对象，依旧使用这种侵入代码的注解方式就不适用了，
+
 针对三方包、或者替代注解这种形式，之前公司内部有实现过`基于xml配置`的形式进行验证，
+
 这种方式不侵入参数对象，且集成也还算方便，
+
 但是用起来还是没有直接在代码里写注解来的顺手（代码有补全、有提示、程序员友好），
+
 **所以一方开发时，首选推荐SpringBoot Validation这套体系，无法直接编辑参数对象时再考虑其他方式。**
 
 
-
-
-
 参考：
+
 [【自定义validator - field、class level】https://www.baeldung.com/spring-mvc-custom-validator](https://www.baeldung.com/spring-mvc-custom-validator)
+
 [【Spring boot集成validation、全局异常处理】https://www.baeldung.com/spring-boot-bean-validation](https://www.baeldung.com/spring-boot-bean-validation)
+
 [【JSR380、非Spring框架集成validation】https://www.baeldung.com/javax-validation](https://www.baeldung.com/javax-validation)
+
 [【方法约束 - Single param、Cross param、Return value自定义constraints、编程调用验证】https://www.baeldung.com/javax-validation-method-constraints](https://www.baeldung.com/javax-validation-method-constraints)
+
 [Spring Validation最佳实践及其实现原理，参数校验没那么简单！](https://segmentfault.com/a/1190000023471742)
+
 [https://reflectoring.io/bean-validation-with-spring-boot/](https://reflectoring.io/bean-validation-with-spring-boot/)
+
+
+
+
