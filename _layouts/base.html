@@ -1,0 +1,38 @@
+---
+common-css:
+  - "/assets/css/bootstrap-social.css"
+  - "/assets/css/ext/bootstrap4.4.1.min.css"
+  - "/assets/css/ext/font-awesome-6.3.0-all.min.css"
+  - "/assets/css/ext/google.fonts.Lora.css"
+  - "/assets/css/ext/google.fonts.OpenSans.css"
+  - "/assets/css/beautifuljekyll.css"
+  - "/assets/css/beautifuljekyll-skin-switch.css"
+
+
+common-js:
+  - "/assets/js/ext/jquery-3.5.1.slim.min.js"
+  - "/assets/js/ext/bootstrap4.4.1.min.js"
+  - "/assets/js/ext/popper1.16.0.min.js"
+  - "/assets/js/beautifuljekyll.js"
+  - "/assets/js/beautifuljekyll-skin-switch.js"
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.language | default: site.language | default: 'en' }}">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+{% include head.html %}
+
+<body>
+
+  {% include gtm_body.html %}
+
+  {% include nav.html %}
+
+  {{ content }}
+
+  {% include footer.html %}
+
+  {% include footer-scripts.html %}
+
+</body>
+</html>

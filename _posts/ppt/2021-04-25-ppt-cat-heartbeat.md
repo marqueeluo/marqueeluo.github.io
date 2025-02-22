@@ -2,9 +2,6 @@
 layout:     ppt
 title:      "【PPT】Cat心跳指标说明"
 subtitle:   ""
-date:       2021-04-25 11:42:00
-author:     "luohq"
-header-img: "img/about-bg.jpg"
 tags:
     - ppt
 ---
@@ -23,50 +20,50 @@ tags:
 
 --
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210325110334799.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x1bzE1MjQyMjA4MzEw,size_16,color_FFFFFF,t_70)
+![img](/assets/img/in-post/cat-heartbeat/cat-jvm-sourcecode.png)
 
 ---
 
 #### ⭐cat.status
-![img](/img/in-post/cat-heartbeat/cat-status.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-status.png)
 
 ---
 
 #### ⭐jvm.memory
-![img](/img/in-post/cat-heartbeat/cat-jvm-1.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-jvm-1.png)
 
 --
 
 #### ⭐jvm.memory
-![img](/img/in-post/cat-heartbeat/cat-jvm-2.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-jvm-2.png)
 
 ---
 
 #### ⭐jvm.gc
-![img](/img/in-post/cat-heartbeat/cat-jvmgc.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-jvmgc.png)
 
 ---
 
 #### ⭐jvm.thread
-![img](/img/in-post/cat-heartbeat/cat-thread.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-thread.png)
 
 ---
 
 #### ⭐system.static
-![img](/img/in-post/cat-heartbeat/cat-static.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-static.png)
 
 ---
 
 ### ⭐jvm.classingloading
-![img](/img/in-post/cat-heartbeat/cat-class.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-class.png)
 
 ---
 
 #### ⭐system.process
-![img](/img/in-post/cat-heartbeat/cat-systemprocess.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-systemprocess.png)
 
 ---
 
 #### ⭐http.status
-![img](/img/in-post/cat-heartbeat/cat-http.png)
+![img](/assets/img/in-post/cat-heartbeat/cat-http.png)
 </textarea>

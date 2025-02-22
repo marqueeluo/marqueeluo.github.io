@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/img/favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="{{ "/revealjs/dist/reset.css" | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ "/revealjs/dist/reveal.css" | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ "/revealjs/dist/theme/black.css" | prepend: site.baseurl }}" id="theme">
+    <link rel="stylesheet" href="{{ "/assets/revealjs/dist/reset.css" }}">
+    <link rel="stylesheet" href="{{ "/assets/revealjs/dist/reveal.css" }}">
+    <link rel="stylesheet" href="{{ "/assets/revealjs/dist/theme/black.css" }}" id="theme">
 
 
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="{{ "/revealjs/plugin/highlight/monokai.css"  | prepend: site.baseurl }}" id="highlight-theme">
+    <link rel="stylesheet" href="{{ "/assets/revealjs/plugin/highlight/monokai.css"  }}" id="highlight-theme">
 </head>
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
@@ -27,10 +27,10 @@
         </div>
     </div>
 
-    <script src="{{ "/revealjs/dist/reveal.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "/revealjs/plugin/notes/notes.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "/revealjs/plugin/markdown/markdown.js" | prepend: site.baseurl }}"></script>
-    <script src="{{ "/revealjs/plugin/highlight/highlight.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/assets/revealjs/dist/reveal.js" }}"></script>
+    <script src="{{ "/assets/revealjs/plugin/notes/notes.js" }}"></script>
+    <script src="{{ "/assets/revealjs/plugin/markdown/markdown.js" }}"></script>
+    <script src="{{ "/assets/revealjs/plugin/highlight/highlight.js" }}"></script>
     <script>
         // More info about initialization & config:
         // - https://revealjs.com/initialization/
